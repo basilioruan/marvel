@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MarvelApiService } from 'src/app/service/marvel-api.service';
 
 @Component({
   selector: 'list',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  public list?: any[];
+
+  constructor(private marvelApiService: MarvelApiService) { }
 
   ngOnInit(): void {
+    this.marvelApiService.apiListAllCharacteracters.subscribe(response => {
+      this.list = response.data.results;
+    });
   }
 
 }
