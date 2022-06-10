@@ -1,0 +1,45 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .hero {
+    position: relative;
+    display: flex;
+    width: 49%;
+    background: white;
+    border-radius: 10px; 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+
+    &__status {
+      margin-right: auto;
+      h2 {
+        font-size: 32px;
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          background: var(--gray);
+          font-size: 18px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 32px;
+          width: 120px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+    
+  }
+}
