@@ -13,6 +13,7 @@ export class MarvelApiService {
   private urlCharacter: string = 'https://gateway.marvel.com/v1/public/characters/';
   private urlComic: string = 'https://gateway.marvel.com/v1/public/comics/';
   private urlSeries: string = 'https://gateway.marvel.com/v1/public/series/';
+  private urlStory: string = 'https://gateway.marvel.com/v1/public/stories/';
 
   constructor(private http: HttpClient) { }
 
@@ -31,5 +32,9 @@ export class MarvelApiService {
 
   public apiGetSeries(id: string): Observable<any> {
     return this.http.get<any>(this.urlSeries + id + '?ts=' + this.ts + '&apikey=' + this.apiKey + '&hash=' + this.hash).pipe();
+  }
+
+  public apiGetStory(id: string): Observable<any> {
+    return this.http.get<any>(this.urlStory + id + '?ts=' + this.ts + '&apikey=' + this.apiKey + '&hash=' + this.hash).pipe();
   }
 }

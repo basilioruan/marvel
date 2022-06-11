@@ -42,7 +42,7 @@
           <ol>
             <li *ngFor="let story of character.stories.items">
               <strong>
-                <a [routerLink]="['']">{{ story.name }}</a>
+                <a [routerLink]="['/story', story.resourceURI.substring(story.resourceURI.lastIndexOf('/')+1)]">{{ story.name }}</a>
               </strong>
             </li>
           </ol>

@@ -1,0 +1,55 @@
+<marvel-header></marvel-header>
+<main>
+  
+  <ng-template [ngIf]="isLoading">
+    <section class="story__titles">
+      <h1 class="slideInLeft">{{story.title}}</h1>
+    </section>
+
+    <section class="story__status">
+      <img *ngIf="story.thumbnail"
+        src={{story.thumbnail.path}}.{{story.thumbnail.extension}}
+        [alt]="story.title"
+      >
+
+      <img *ngIf="!story.thumbnail"
+        class="not-available"
+        src='./assets/no-image-available.jpg'
+        [alt]="story.title"
+      >
+
+      <article class="story__status__statistics">
+        <section>
+          <h3>Description</h3>
+          
+          <p *ngIf="story.description"> {{ story.description }} </p>
+          <p *ngIf="!story.description"> This story has no description </p>
+
+          <h3>Creators</h3>
+          <ol *ngIf="story.creators.available">
+            <li *ngFor="let creator of story.creators.items">
+              <strong>
+                {{ creator.name }}
+              </strong>
+              {{ creator.role }}
+            </li>
+          </ol>
+          <p *ngIf="!story.creators.available"> This story has no creators </p>
+
+        </section>
+
+        <a [routerLink]="['']" class="btn">
+          Return to home
+        </a>
+      </article>
+    </section>
+  </ng-template>
+
+  <img
+    src="assets/portrait_fantastic.jpg"
+    alt="Deu erro na mostragem do story"
+    width="100%"
+    *ngIf="apiError"
+  >
+</main>
+<marvel-footer></marvel-footer>

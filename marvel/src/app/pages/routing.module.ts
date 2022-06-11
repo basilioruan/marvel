@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { SeriesDetailComponent } from './series-detail/series-detail.component';
+import { StoryDetailComponent } from './story-detail/story-detail.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'series/:id',
     component: SeriesDetailComponent
+  },
+  {
+    path: 'story/:id',
+    component: StoryDetailComponent
   }
 ];
 
