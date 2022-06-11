@@ -12,6 +12,12 @@
         [alt]="comic.title"
       >
 
+      <img *ngIf="!comic.thumbnail"
+        class="not-available"
+        src='./assets/no-image-available.jpg'
+        [alt]="comic.title"
+      >
+
       <article class="comic__status__statistics">
         <section>
           <h3>Description</h3>
@@ -20,7 +26,7 @@
           <p *ngIf="!comic.description"> This comic has no description </p>
 
           <h3>Creators</h3>
-          <ol>
+          <ol *ngIf="comic.creators.available">
             <li *ngFor="let creator of comic.creators.items">
               <strong>
                 {{ creator.name }}
@@ -28,6 +34,7 @@
               {{ creator.role }}
             </li>
           </ol>
+          <p *ngIf="!comic.creators.available"> This comic has no creators </p>
 
         </section>
 

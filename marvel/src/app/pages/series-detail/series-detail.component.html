@@ -12,6 +12,12 @@
         [alt]="series.title"
       >
 
+      <img *ngIf="!series.thumbnail"
+        class="not-available"
+        src='./assets/no-image-available.jpg'
+        [alt]="series.title"
+      >
+
       <article class="series__status__statistics">
         <section>
           <h3>Description</h3>
@@ -20,7 +26,7 @@
           <p *ngIf="!series.description"> This series has no description </p>
 
           <h3>Creators</h3>
-          <ol>
+          <ol *ngIf="series.creators.available">
             <li *ngFor="let creator of series.creators.items">
               <strong>
                 {{ creator.name }}
@@ -28,6 +34,7 @@
               {{ creator.role }}
             </li>
           </ol>
+          <p *ngIf="!series.creators.available"> This series has no creators </p>
 
         </section>
 
