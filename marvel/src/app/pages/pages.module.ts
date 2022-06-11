@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { SeriesDetailComponent } from './series-detail/series-detail.component';
 import { StoryDetailComponent } from './story-detail/story-detail.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { StoryDetailComponent } from './story-detail/story-detail.component';
     ComicDetailComponent,
     SeriesDetailComponent,
     StoryDetailComponent,
+    AboutComponent,
   ],
   imports: [
     CommonModule,

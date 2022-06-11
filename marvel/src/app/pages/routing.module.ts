@@ -7,11 +7,16 @@ import { DetailsComponent } from './details/details.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { SeriesDetailComponent } from './series-detail/series-detail.component';
 import { StoryDetailComponent } from './story-detail/story-detail.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: 'details/:id',
