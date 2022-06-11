@@ -8,13 +8,14 @@ import { MarvelApiService } from 'src/app/service/marvel-api.service';
 })
 export class ListComponent implements OnInit {
 
+  public offset: number = 0;
   public list?: any[];
   private setList?: any[];
 
   constructor(private marvelApiService: MarvelApiService) { }
 
   ngOnInit(): void {
-    this.marvelApiService.apiListAllCharacteracters.subscribe(response => {
+    this.marvelApiService.apiListAllCharacteracters(this.offset).subscribe(response => {
       this.list = response.data.results;
       this.setList = this.list;
     });
@@ -26,6 +27,15 @@ export class ListComponent implements OnInit {
     } );
 
     this.list = filter;
+  }
+
+  public viewMore() {
+    console.log('chamouuu');
+    this.offset += 10;
+    this.marvelApiService.apiListAllCharacteracters(this.offset).subscribe(response => {
+      this.setList?.push(...response.data.results);
+      this.list = this.setList;
+    });
   }
 
 }
