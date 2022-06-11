@@ -1,19 +1,22 @@
-<ng-template ngFor let-character [ngForOf]="list">
-  <a class="hero">
-    <section class="hero__status">
-      <h2> {{ character.name }} </h2>
-  
-      <ul>
-        <li> Comics: {{ character.comics.available }} </li>
-        <li> Series: {{ character.series.available }} </li>
-        <li> Stories: {{ character.stories.available }} </li>
-      </ul>
-    </section>
-  
-    <section class="hero__image">
-      <img src={{character.thumbnail.path}}.{{character.thumbnail.extension}} [alt]="character.name">
-    </section>
-  </a>
-</ng-template>
+<search (emmitSearch)="filterList($event)"></search>
+<section class="listing">
+  <ng-template ngFor let-character [ngForOf]="list">
+    <a [routerLink]="['details', character.id]" class="hero">
+      <section class="hero__status">
+        <h2> {{ character.name }} </h2>
+    
+        <ul>
+          <li> Comics: {{ character.comics.available }} </li>
+          <li> Series: {{ character.series.available }} </li>
+          <li> Stories: {{ character.stories.available }} </li>
+        </ul>
+      </section>
+    
+      <section class="hero__image">
+        <img src={{character.thumbnail.path}}.{{character.thumbnail.extension}} [alt]="character.name">
+      </section>
+    </a>
+  </ng-template>
+</section>
 
 

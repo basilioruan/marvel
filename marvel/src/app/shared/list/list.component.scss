@@ -1,50 +1,51 @@
 :host {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  .hero {
-    position: relative;
+  .listing{
     display: flex;
-    width: 49%;
-    background: white;
-    border-radius: 10px; 
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 20px;
-    text-decoration: none;
-    color: black;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
-    &__status {
-      margin-right: auto;
-      h2 {
-        font-size: 32px;
-        font-style: italic;
-        font-weight: 700;
-      }
+    .hero {
+      position: relative;
+      display: flex;
+      width: 49%;
+      background: white;
+      border-radius: 10px; 
+      margin-top: 2%;
+      padding: 20px;
+      text-decoration: none;
+      color: black;
 
-      ul {
-        display: flex;
-        flex-direction: column;
+      &__status {
+        margin-right: auto;
+        h2 {
+          font-size: 32px;
+          font-style: italic;
+          font-weight: 700;
+        }
 
-        li {
-          background: var(--gray);
-          font-size: 18px;
-
+        ul {
           display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 32px;
-          width: 120px;
-          margin-bottom: 5px;
+          flex-direction: column;
+
+          li {
+            background: var(--gray);
+            font-size: 18px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 32px;
+            width: 120px;
+            margin-bottom: 5px;
+          }
         }
       }
-    }
 
-    img {
-      width: 150px;
-      height: 170px;
+      img {
+        width: 150px;
+        height: 170px;
+      }
+      
     }
-    
   }
 }

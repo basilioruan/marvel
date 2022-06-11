@@ -6,12 +6,20 @@ import { tap, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MarvelApiService {
-
-  private url: string = 'http://gateway.marvel.com/v1/public/characters?limit=100&ts=1&apikey=e7f756ce4b8c8e87251071c473c4a115&hash=e5ac3c5a22ffc5b255b4f5f267b2843e'
+  private apiKey = 'd638c5af3dfeb0f0a9243ec7ce87ccf7';
+  private ts = '1';
+  private hash = '5a8151ff7b426f6e2a685d6111829022';
+  private url: string = 'https://gateway.marvel.com/v1/public/characters?limit=100&ts=' + this.ts + '&apikey=' + this.apiKey + '&hash=' + this.hash;
+  private urlCharacter: string = 'https://gateway.marvel.com/v1/public/characters/';
 
   constructor(private http: HttpClient) { }
 
   get apiListAllCharacteracters():Observable<any> {
     return this.http.get<any>(this.url).pipe();
+  }
+
+  public apiGetCharacter(id: string):Observable<any> {
+    console.log(this.urlCharacter + id + '?ts=' + this.ts + '&apikey=' + this.apiKey + '&hash=' + this.hash);
+    return this.http.get<any>(this.urlCharacter + id + '?ts=' + this.ts + '&apikey=' + this.apiKey + '&hash=' + this.hash).pipe();
   }
 }

@@ -1,1 +1,66 @@
-<p>details works!</p>
+<marvel-header></marvel-header>
+
+<main>
+  
+  <ng-template [ngIf]="isLoading">
+    <section class="character__names">
+      <h1 class="slideInLeft">{{character.name}}</h1>
+    </section>
+
+    <section class="character__status">
+      <img
+        src={{character.thumbnail.path}}.{{character.thumbnail.extension}}
+        [alt]="character.name"
+        class="slideInDown"
+      >
+
+      <article class="character__status__statistics fadeIn">
+        <section>
+          <h3>Description</h3>
+
+          <p> {{ character.description }} </p>
+
+          <h3>Comics</h3>
+          <ol>
+            <li *ngFor="let comic of character.comics.items">
+              <strong>
+                <a [routerLink]="['']">{{ comic.name }}</a>
+              </strong>
+            </li>
+          </ol>
+
+          <h3>Series</h3>
+          <ol>
+            <li *ngFor="let serie of character.series.items">
+              <strong>
+                <a [routerLink]="['']">{{ serie.name }}</a>
+              </strong>
+            </li>
+          </ol>
+
+          <h3>Stories</h3>
+          <ol>
+            <li *ngFor="let story of character.stories.items">
+              <strong>
+                <a [routerLink]="['']">{{ story.name }}</a>
+              </strong>
+            </li>
+          </ol>
+        </section>
+
+        <a [routerLink]="['']" class="btn">
+          Return to home
+        </a>
+      </article>
+    </section>
+  </ng-template>
+
+  <img
+    src="assets/portrait_fantastic.jpg"
+    alt="Deu erro na mostragem do character"
+    width="100%"
+    *ngIf="apiError"
+  >
+</main>
+
+<marvel-footer></marvel-footer>
