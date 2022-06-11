@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class MarvelApiService {
   private url: string = 'https://gateway.marvel.com/v1/public/characters?limit=100&ts=' + this.ts + '&apikey=' + this.apiKey + '&hash=' + this.hash;
   private urlCharacter: string = 'https://gateway.marvel.com/v1/public/characters/';
   private urlComic: string = 'https://gateway.marvel.com/v1/public/comics/';
+  private urlSeries: string = 'https://gateway.marvel.com/v1/public/series/';
 
   constructor(private http: HttpClient) { }
 
@@ -26,5 +27,9 @@ export class MarvelApiService {
 
   public apiGetCommic(id: string): Observable<any> {
     return this.http.get<any>(this.urlComic + id + '?ts=' + this.ts + '&apikey=' + this.apiKey + '&hash=' + this.hash).pipe();
+  }
+
+  public apiGetSeries(id: string): Observable<any> {
+    return this.http.get<any>(this.urlSeries + id + '?ts=' + this.ts + '&apikey=' + this.apiKey + '&hash=' + this.hash).pipe();
   }
 }

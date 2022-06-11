@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
+import { SeriesDetailComponent } from './series-detail/series-detail.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'comic/:id',
     component: ComicDetailComponent
+  },
+  {
+    path: 'series/:id',
+    component: SeriesDetailComponent
   }
 ];
 

@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { SharedModule } from '../shared/shared.module';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
+import { SeriesDetailComponent } from './series-detail/series-detail.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ComicDetailComponent } from './comic-detail/comic-detail.component';
     HomeComponent,
     DetailsComponent,
     ComicDetailComponent,
+    SeriesDetailComponent,
   ],
   imports: [
     CommonModule,

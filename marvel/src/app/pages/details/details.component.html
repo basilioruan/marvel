@@ -31,9 +31,9 @@
 
           <h3>Series</h3>
           <ol>
-            <li *ngFor="let serie of character.series.items">
+            <li *ngFor="let series of character.series.items">
               <strong>
-                <a [routerLink]="['']">{{ serie.name }}</a>
+                <a [routerLink]="['/series', series.resourceURI.substring(series.resourceURI.lastIndexOf('/')+1)]">{{ series.name }}</a>
               </strong>
             </li>
           </ol>
