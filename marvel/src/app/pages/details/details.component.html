@@ -24,7 +24,7 @@
           <ol>
             <li *ngFor="let comic of character.comics.items">
               <strong>
-                <a [routerLink]="['']">{{ comic.name }}</a>
+                <a [routerLink]="['/comic', comic.resourceURI.substring(comic.resourceURI.lastIndexOf('/')+1)]">{{ comic.name }}</a>
               </strong>
             </li>
           </ol>

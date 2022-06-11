@@ -1,0 +1,48 @@
+<marvel-header></marvel-header>
+<main>
+  
+  <ng-template [ngIf]="isLoading">
+    <section class="comic__titles">
+      <h1 class="slideInLeft">{{comic.title}}</h1>
+    </section>
+
+    <section class="comic__status">
+      <img
+        src={{comic.thumbnail.path}}.{{comic.thumbnail.extension}}
+        [alt]="comic.title"
+      >
+
+      <article class="comic__status__statistics">
+        <section>
+          <h3>Description</h3>
+          
+          <p *ngIf="comic.description"> {{ comic.description }} </p>
+          <p *ngIf="!comic.description"> This comic has no description </p>
+
+          <h3>Creators</h3>
+          <ol>
+            <li *ngFor="let creator of comic.creators.items">
+              <strong>
+                {{ creator.name }}
+              </strong>
+              {{ creator.role }}
+            </li>
+          </ol>
+
+        </section>
+
+        <a [routerLink]="['']" class="btn">
+          Return to home
+        </a>
+      </article>
+    </section>
+  </ng-template>
+
+  <img
+    src="assets/portrait_fantastic.jpg"
+    alt="Deu erro na mostragem do comic"
+    width="100%"
+    *ngIf="apiError"
+  >
+</main>
+<marvel-footer></marvel-footer>
